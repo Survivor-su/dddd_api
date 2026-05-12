@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# 虚拟环境
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# Git
+.git/
+.gitignore
+
+# 测试文件与图片
+test.py
+captcha.gif
+
+# 文档
+README.md
+
+# Docker
+Dockerfile
+.dockerignore
+
