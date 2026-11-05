@@ -11,4 +11,13 @@ dependencies = [
     "python-multipart>=0.0.28",
     "requests>=2.34.0",
     "uvicorn>=0.46.0",
+    # GPU 版推理运行时。CUDA 12 构建（1.27+ 为 CUDA 13，Pascal 显卡不支持）
+    "onnxruntime-gpu[cuda,cudnn]==1.26.0",
 ]
+
+[tool.uv]
+# onnxruntime(CPU) 与 onnxruntime-gpu 写入同一个 onnxruntime/ 模块目录，
+# 必须排除 CPU 版，否则会覆盖 GPU 的 .so 导致 GPU 静默失效
+exclude-dependencies = ["onnxruntime"]
+# cuDNN 9.9+ 与 onnxruntime-gpu 1.26 不兼容（CUDNN_STATUS_EXECUTION_FAILED_CUDART）
+override-dependencies = ["nvidia-cudnn-cu12==9.8.0.87"]
