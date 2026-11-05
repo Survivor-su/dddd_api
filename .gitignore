@@ -5,7 +5,18 @@ build/
 dist/
 wheels/
 *.egg-info
-.idea
-.python-version
+
 # Virtual environments
-.venv
+.venv/
+
+# IDE
+.idea/
+.vscode/
+
+# Environment variables
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
